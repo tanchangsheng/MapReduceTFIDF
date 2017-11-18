@@ -8,13 +8,8 @@ public class MapReduceTfidfVectorizer {
     private static Map<String, Integer> vocab = new HashMap<>();
 
     public static void main(String[] args) {
-
-
-
-    }
-
-
-    public static void createVocab(){
+        //gets data from cleaned, combined file for positive and negative reviews
+        String filename = System.getProperty("user.dir") + "\\src\\aa\\data\\cleanCombined.txt";
 
     }
 
