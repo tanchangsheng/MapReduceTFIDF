@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 public class MapReduceTfidfVectorizer {
 
     private static Map<String, Integer> vocab = new HashMap<>();
-
     //gets data from cleaned, combined file for positive and negative reviews
-    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
+//    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
+    private static String filename = "../data/cleanCombined.txt";
 
     public static void main(String[] args) {
-
+//        String filename = System.getProperty("user.dir");
+//        System.out.println(filename);
         // creating a numerical index of all the words in file
         createVocab(filename);
 
@@ -90,6 +91,7 @@ public class MapReduceTfidfVectorizer {
             vocab.put(word, id);
             id++;
         }
+        System.out.println("Number of unique tokens : " + vocab.keySet().size());
     }
 
     public static List<Integer> reverseIndexing(String words){

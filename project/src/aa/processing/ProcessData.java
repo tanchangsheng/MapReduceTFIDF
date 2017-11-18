@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 public class ProcessData {
 
-    private static String stopwordsFile = "../../data/stopwords";
-    private static String inputDocument = "../../data/allPositive.txt";
-    private static String outputDocument = "../../data/cleanedAllPositive.txt";
+    private static String stopwordsFile = "../data/stopwords";
+    private static String inputDocument = "../data/allNegative.txt";
+    private static String outputDocument = "../data/cleanedAllNegative.txt";
     private static String label = "+";
 
     private static List<String> stopwords;
@@ -40,7 +40,6 @@ public class ProcessData {
             String line;
             boolean isID = false;
             boolean isReview = false;
-            int tagCount = 0;
 
             while ((line = bufferedReader.readLine()) != null) {
 
@@ -48,12 +47,7 @@ public class ProcessData {
 
                 if (line.equalsIgnoreCase("<unique_id>")) {
                     // indicate start of ID in coming rows
-                    if(tagCount == 0){
-                        isID = true;
-                        tagCount += 1;
-                    } else if(tagCount == 1){
-                        tagCount = 0;
-                    }
+                    isID = true;
                     continue;
                 } else if (line.equalsIgnoreCase("</unique_id>")){
                     // indicate end of ID
@@ -61,8 +55,8 @@ public class ProcessData {
                 }
 
                 if(isID){
-                    line.replaceAll(",", "");
-                    stringBuffer.append(line + "," + label + ",");
+                    line = line.replaceAll(",", "");
+                    stringBuffer.append(line);
                 }
 
                 if (line.equalsIgnoreCase("<review_text>")){
@@ -78,7 +72,7 @@ public class ProcessData {
                 }
                 if(isReview){
                     String cleaned = clean(line);
-                    stringBuffer.append(cleaned);
+                    stringBuffer.append("," + label + "," + cleaned);
                 }
 
 
@@ -109,6 +103,7 @@ public class ProcessData {
 
         List<String> cleanWords = Arrays.stream(rowOfText.split(" "))
                 .filter(x -> x.matches("^[a-zA-Z0-9]*$")) //retrieve only alphanumeric
+                .map(x -> x.replaceAll(",",""))
                 .map(String::toLowerCase) //convert all to lower case
                 .filter(x -> !stopwords.contains(x)) // remove stop words
                 .collect(Collectors.toList());
