@@ -11,7 +11,7 @@ public class MapReduceTfidfVectorizer {
     private static Map<String, Integer> vocab = new HashMap<>();
 
     //gets data from cleaned, combined file for positive and negative reviews
-    private static String filename = System.getProperty("user.dir") + "\\src\\aa\\data\\cleanCombined.txt";
+    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
 
     public static void main(String[] args) {
 
@@ -32,7 +32,38 @@ public class MapReduceTfidfVectorizer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        if (!numericalFeatures.isEmpty()){
+            //Call mapreduce
+            //Create instance of the Mapper
+            Mapper<List<Integer>, Integer, Integer> mapperCode = new DocumentFrequencyMapReduce();
+            //Create instance of the Reducer
+            Reducer<Integer, Integer, Integer, Integer> reducerCode = new DocumentFrequencyMapReduce();
 
+            //How many shards?
+            int numberOfShards = 4;
+
+            //lots of output?
+            boolean verbose = true;
+
+            Map<Integer, Integer> resultMap = null;
+            try {
+                resultMap = MapReduce.mapReduce(mapperCode,
+                        reducerCode,
+                        numericalFeatures,
+                        numberOfShards,
+                        verbose);
+            } catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+
+            for (Integer key : resultMap.keySet())
+            {
+                System.out.println(key + "=" + resultMap.get(key));
+            }
+
+
+        }
 
     }
 
