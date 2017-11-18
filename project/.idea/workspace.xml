@@ -12,10 +12,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProcessData.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProcessData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aa/processing/ProcessData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="292">
               <caret line="48" column="58" lean-forward="false" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
               <folding />
             </state>
@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapReduceTfidfVectorizer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapReduceTfidfVectorizer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aa/vectorisation/MapReduceTfidfVectorizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+            <state relative-caret-position="346">
+              <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -88,8 +88,8 @@
       <find>system.ou</find>
       <find>print</find>
       <find>[0</find>
-      <find>system.out.pr</find>
       <find>count</find>
+      <find>system.out.pr</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -105,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/aa/vectorisation/MapReduceTemplate.java" />
         <option value="$PROJECT_DIR$/src/aa/vectorisation/Reducer.java" />
         <option value="$PROJECT_DIR$/src/aa/vectorisation/SerialVectorisor.java" />
-        <option value="$PROJECT_DIR$/src/aa/vectorisation/MapReduceTfidfVectorizer.java" />
         <option value="$PROJECT_DIR$/src/aa/processing/ProcessData.java" />
+        <option value="$PROJECT_DIR$/src/aa/vectorisation/MapReduceTfidfVectorizer.java" />
       </list>
     </option>
   </component>
@@ -342,12 +342,12 @@
       <updated>1510216498551</updated>
       <workItem from="1510216500003" duration="1981000" />
       <workItem from="1510507466399" duration="2600000" />
-      <workItem from="1510996164670" duration="3097000" />
+      <workItem from="1510996164670" duration="3247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7678000" />
+    <option name="totallyTimeSpent" value="7828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -359,7 +359,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2917647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2917647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -486,10 +486,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aa/vectorisation/MapReduceTfidfVectorizer.java">
+    <entry file="file://$PROJECT_DIR$/src/aa/processing/ProcessData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+        <state relative-caret-position="292">
+          <caret line="48" column="58" lean-forward="false" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -502,10 +502,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aa/processing/ProcessData.java">
+    <entry file="file://$PROJECT_DIR$/src/aa/vectorisation/MapReduceTfidfVectorizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="48" column="58" lean-forward="false" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+        <state relative-caret-position="346">
+          <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
           <folding />
         </state>
       </provider>

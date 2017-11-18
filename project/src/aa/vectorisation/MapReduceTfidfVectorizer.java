@@ -86,8 +86,8 @@ public class MapReduceTfidfVectorizer {
             e.printStackTrace();
         }
 
+        int id = 0;
         for(String word : words){
-            int id = 0;
             vocab.put(word, id);
             id++;
         }
