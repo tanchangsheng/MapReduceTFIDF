@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <excludeFromCompile>
       <file url="file://$PROJECT_DIR$/aa/vectorisation/MapReduceTemplate.java" />
+      <file url="file://$PROJECT_DIR$/aa/vectorisation/TermFrequencyCallable.java" />
     </excludeFromCompile>
   </component>
 </project>
