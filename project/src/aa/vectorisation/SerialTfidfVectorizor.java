@@ -1,6 +1,6 @@
 package aa.vectorisation;
 
-public class SerialVectorisor {
+public class SerialTfidfVectorizor {
 
     public static void vectorise(){
 
