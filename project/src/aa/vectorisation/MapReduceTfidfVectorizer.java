@@ -47,7 +47,6 @@ public class MapReduceTfidfVectorizer {
                         String[] reviewWords = parts[2].split(" ");
                         return Arrays.stream(reviewWords);
                     })
-                     .limit(10)
                      .distinct()
                      .collect(Collectors.toList());
 
