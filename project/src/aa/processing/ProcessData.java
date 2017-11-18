@@ -11,8 +11,9 @@ import java.util.stream.Collectors;
 public class ProcessData {
 
     private static String stopwordsFile = "../../data/stopwords";
-    private static String inputDocument = "../../data/allNegative.txt";
-    private static String outputDocument = "../../data/cleanedAllNegative.txt";
+    private static String inputDocument = "../../data/allPositive.txt";
+    private static String outputDocument = "../../data/cleanedAllPositive.txt";
+    private static String label = "+";
 
     private static List<String> stopwords;
 
@@ -24,7 +25,7 @@ public class ProcessData {
 
     }
 
-    // to transform markup language to csv of DocId, Label, Review,
+    // to transform markup language to csv of DocId,Label,Review,
     // book1, +, this book is amazing
     public static void transformData(){
         List<String> data = new ArrayList<>();
@@ -61,7 +62,7 @@ public class ProcessData {
 
                 if(isID){
                     line.replaceAll(",", "");
-                    stringBuffer.append(line + ",");
+                    stringBuffer.append(line + "," + label + ",");
                 }
 
                 if (line.equalsIgnoreCase("<review_text>")){
