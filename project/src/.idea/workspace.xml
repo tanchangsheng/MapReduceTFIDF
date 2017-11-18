@@ -12,7 +12,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProcessData.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProcessData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aa/processing/ProcessData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-881">
@@ -20,6 +20,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TFIDFCalculator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/aa/TFIDFCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -36,8 +46,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vectoriser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aa/vectorisation/Vectoriser.java">
+      <file leaf-file-name="TfidfVectorizer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aa/vectorisation/TfidfVectorizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -272,7 +282,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8285000" />
+    <option name="totallyTimeSpent" value="8389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -324,7 +334,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aa/vectorisation/Vectoriser.java">
+    <entry file="file://$PROJECT_DIR$/aa/vectorisation/TfidfVectorizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -354,7 +364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aa/vectorisation/Vectoriser.java">
+    <entry file="file://$PROJECT_DIR$/aa/vectorisation/TfidfVectorizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -371,6 +381,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aa/TFIDFCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
