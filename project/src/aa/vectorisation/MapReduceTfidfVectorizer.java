@@ -17,7 +17,7 @@ public class MapReduceTfidfVectorizer {
 //    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
 
 //    private static String filename = "/Users/changsheng/OneDrive - Singapore Management " +
-//            "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/50kfood.txt";
+//            "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/100kfood.txt";
     private static String filename = "../data/cleanLargeCombined.txt";
     private static int numOfThreads = 8;
     private static Map<String, Integer> vocab = new HashMap<>();
@@ -30,16 +30,22 @@ public class MapReduceTfidfVectorizer {
 
         // creating a numerical index of all the words in file
 
-        createFoodVocab(filename);
+        createData1Vocab(filename);
 
         // converting all words in review to numbers
         try {
 
+//            amazon product review
             numericalFeatures = Files.lines(Paths.get(filename))
                     .map(x -> x.split(","))
                     .map(x -> x[2])
                     .map(x -> reverseIndexing(x))
                     .collect(Collectors.toList());
+
+            // foods.txt
+//            numericalFeatures = Files.lines(Paths.get(filename))
+//                    .map(x -> reverseIndexing(x))
+//                    .collect(Collectors.toList());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +65,7 @@ public class MapReduceTfidfVectorizer {
         int numberOfShards = 8;
         getDocumentFrequency(numericalFeatures, numberOfShards,verbose);
 
-        getTfidfVector(numOfThreads,false, vocabDocumentFrequency);
+        getTfidfVector(numOfThreads,true, vocabDocumentFrequency);
 
         long endTime = System.currentTimeMillis();
 
@@ -68,7 +74,7 @@ public class MapReduceTfidfVectorizer {
 
     }
 
-    public static void createVocab(String filename){
+    public static void createData1Vocab(String filename){
 
         List<String> words = new ArrayList<>();
 
@@ -95,7 +101,7 @@ public class MapReduceTfidfVectorizer {
         System.out.println("Number of unique tokens : " + vocab.keySet().size());
     }
 
-    public static void createFoodVocab(String filename){
+    public static void createData2Vocab(String filename){
 
         List<String> words = new ArrayList<>();
 

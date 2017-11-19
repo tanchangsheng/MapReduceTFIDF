@@ -26,17 +26,15 @@ public class SerialTfidfVectorizor {
         // converting all words in review to numbers
         try {
 
-            // foods.txt
+//             amazon product review
             numericalFeatures = Files.lines(Paths.get(filename))
                     .map(x -> x.split(","))
                     .map(x -> x[2])
                     .map(x -> reverseIndexing(x))
                     .collect(Collectors.toList());
 
-//             amazon.txt
+//            // foods.txt
 //            numericalFeatures = Files.lines(Paths.get(filename))
-//                    .map(x -> x.split(","))
-//                    .map(x -> x[2])
 //                    .map(x -> reverseIndexing(x))
 //                    .collect(Collectors.toList());
 
@@ -53,7 +51,7 @@ public class SerialTfidfVectorizor {
 
         getDocFrequency();
 
-        getTfidfVector(false);
+        getTfidfVector(true);
 
         long endTime = System.currentTimeMillis();
 

@@ -23,60 +23,17 @@ public class ProcessData {
 
         loadStopWords();
 
-        // clean and transform amazon data
-        processFood();
-
 //        clean and transdorm amazon product review
-//        transformData();
+        processData1();
 
-    }
-
-    public static void processFood(){
-
-        String inputDocument = "/Users/changsheng/OneDrive - Singapore Management " +
-                "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/foods.txt";
-
-        String outputDocument = "/Users/changsheng/OneDrive - Singapore Management " +
-                "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/450kfood.txt";
-
-        List<String> data = new ArrayList<>();
-
-        try {
-            data = Files.lines(Paths.get(inputDocument), Charset.forName("ISO-8859-1"))
-                    .filter(x -> x.startsWith("review/text:"))
-                    .limit(450000)
-                    .map(x -> x.replaceFirst("review/text:", ""))
-                    .map(x -> clean(x))
-                    .collect(Collectors.toList());
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(data.size());
-
-        File outputFile = new File(outputDocument);
-
-        try ( FileWriter fr = new FileWriter(outputFile)){
-
-            for (String line : data){
-                fr.write(line + "\n");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
+        // clean and transform food data
+//        processData2();
 
     }
 
     // to transform markup language to csv of DocId,Label,Review,
     // book1, +, this book is amazing
-    public static void transformData(){
+    public static void processData1(){
         List<String> data = new ArrayList<>();
 
         File file = new File(inputDocument);
@@ -133,6 +90,45 @@ public class ProcessData {
         }
 
         System.out.println(data.size());
+        File outputFile = new File(outputDocument);
+
+        try ( FileWriter fr = new FileWriter(outputFile)){
+
+            for (String line : data){
+                fr.write(line + "\n");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void processData2(){
+
+        String inputDocument = "/Users/changsheng/OneDrive - Singapore Management " +
+                "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/foods.txt";
+
+        String outputDocument = "/Users/changsheng/OneDrive - Singapore Management " +
+                "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/450kfood.txt";
+
+        List<String> data = new ArrayList<>();
+
+        try {
+            data = Files.lines(Paths.get(inputDocument), Charset.forName("ISO-8859-1"))
+                    .filter(x -> x.startsWith("review/text:"))
+                    .limit(450000)
+                    .map(x -> x.replaceFirst("review/text:", ""))
+                    .map(x -> clean(x))
+                    .collect(Collectors.toList());
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(data.size());
+
         File outputFile = new File(outputDocument);
 
         try ( FileWriter fr = new FileWriter(outputFile)){
