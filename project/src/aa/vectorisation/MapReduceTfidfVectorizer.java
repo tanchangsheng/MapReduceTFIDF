@@ -15,6 +15,7 @@ public class MapReduceTfidfVectorizer {
 
     //gets data from cleaned, combined file for positive and negative reviews
 //    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
+
     private static String filename = "../data/cleanCombined.txt";
     private static int numOfThreads = 8;
     private static Map<String, Integer> vocab = new HashMap<>();
@@ -24,8 +25,7 @@ public class MapReduceTfidfVectorizer {
     private static List<List<Double[]>> tfidfVectors = new ArrayList<>();
 
     public static void main(String[] args) {
-//        String filename = System.getProperty("user.dir");
-//        System.out.println(filename);
+
         // creating a numerical index of all the words in file
         createVocab(filename);
 
@@ -47,6 +47,8 @@ public class MapReduceTfidfVectorizer {
             System.exit(1);
         }
 
+        long startTime = System.currentTimeMillis();
+
         //Call mapreduce to obtain document frequency for each word
         //lots of output?
         boolean verbose = false;
@@ -54,11 +56,11 @@ public class MapReduceTfidfVectorizer {
         int numberOfShards = 8;
         getDocumentFrequency(numericalFeatures, numberOfShards,verbose);
 
+        getTfidfVector(numOfThreads,false, vocabDocumentFrequency);
 
-//        getTfVector(numOfThreads,true);
-        getTfidfVector(numOfThreads,true, vocabDocumentFrequency);
+        long endTime = System.currentTimeMillis();
 
-        
+        System.out.printf("Map reduce Tfidf vectorisation completed in %d ms", (endTime - startTime));
 
 
     }
@@ -71,6 +73,7 @@ public class MapReduceTfidfVectorizer {
             words = Files.lines(Paths.get(filename))
                     .flatMap(x -> {
                         String[] parts = x.split(",");
+//                        System.out.println(Arrays.toString(parts));
                         String[] reviewWords = parts[2].split(" ");
                         return Arrays.stream(reviewWords);
                     })

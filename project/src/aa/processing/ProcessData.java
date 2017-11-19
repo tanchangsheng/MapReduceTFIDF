@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 public class ProcessData {
 
     private static String stopwordsFile = "../data/stopwords";
-    private static String inputDocument = "../data/allNegative.txt";
-    private static String outputDocument = "../data/cleanedAllNegative.txt";
+    private static String inputDocument = "../data/largePositive.txt";
+    private static String outputDocument = "../data/cleanedLargePositive.txt";
     private static String label = "+";
 
     private static List<String> stopwords;
