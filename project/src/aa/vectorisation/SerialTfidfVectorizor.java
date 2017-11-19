@@ -11,8 +11,10 @@ import java.util.stream.Collectors;
 @SuppressWarnings("Duplicates")
 public class SerialTfidfVectorizor {
 
+//    private static String filename = "/Users/changsheng/OneDrive - Singapore Management " +
+//            "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/450kfood.txt";
     private static Map<String, Integer> vocab = new HashMap<>();
-    private static String filename = "../data/cleanCombined.txt";
+    private static String filename = "../data/cleanLargeCombined.txt";
     private static List<List<Integer>> numericalFeatures = new ArrayList<>();
     private static List<List<Double[]>> tfidfVectors = new ArrayList<>();
     private static Map<Integer, Integer> vocabDocumentFrequency = new HashMap<>();
@@ -24,11 +26,19 @@ public class SerialTfidfVectorizor {
         // converting all words in review to numbers
         try {
 
+            // foods.txt
             numericalFeatures = Files.lines(Paths.get(filename))
                     .map(x -> x.split(","))
                     .map(x -> x[2])
                     .map(x -> reverseIndexing(x))
                     .collect(Collectors.toList());
+
+//             amazon.txt
+//            numericalFeatures = Files.lines(Paths.get(filename))
+//                    .map(x -> x.split(","))
+//                    .map(x -> x[2])
+//                    .map(x -> reverseIndexing(x))
+//                    .collect(Collectors.toList());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -47,12 +57,12 @@ public class SerialTfidfVectorizor {
 
         long endTime = System.currentTimeMillis();
 
-        System.out.printf("Map reduce Tfidf vectorisation completed in %d ms", (endTime - startTime));
+        System.out.printf("Serial Tfidf vectorisation completed in %d ms", (endTime - startTime));
 
     }
 
     /**
-     * @param doc  list of wordIDs
+     * @param doc  list of wordIDs in a document
      * @param term wordID representing a term
      * @return term frequency of term in document
      */
@@ -66,35 +76,10 @@ public class SerialTfidfVectorizor {
     }
 
     /**
-     * @param docs list of list of int represents the dataset
-     * @param term int representing a term
-     * @return the inverse term frequency of term in documents
+     * @param doc  list of wordIDs in a document
+     * @param term wordID representing a term
+     * @return term frequency of term in document
      */
-//    public static double idf(List<List<Integer>> docs, int term) {
-//        double n = 0;
-//        for (List<Integer> doc : docs) {
-//            for (int i : doc) {
-//                if (term == i) {
-//                    n++;
-//                    break;
-//                }
-//            }
-//        }
-//        return Math.log(docs.size() / n);
-//    }
-
-
-    /**
-     * @param doc  a text document
-     * @param docs all documents
-     * @param term term
-     * @return the TF-IDF of term
-     */
-//    public static double tfIdf(List<Integer> doc, List<List<Integer>> docs, int term) {
-//        return tf(doc, term) * idf(docs, term);
-//
-//    }
-
     public static double tfIdf(int term, List<Integer> doc) {
 
         int tf = tf(doc, term);
@@ -127,10 +112,6 @@ public class SerialTfidfVectorizor {
             }
         }
 
-//        for(int term : vocabDocumentFrequency.keySet()){
-//
-//            System.out.println(term + " - " + vocabDocumentFrequency.get(term));
-//        }
     }
 
 
@@ -144,6 +125,7 @@ public class SerialTfidfVectorizor {
                     .flatMap(x -> {
                         String[] parts = x.split(",");
                         String[] reviewWords = parts[2].split(" ");
+//                        String[] reviewWords = x.split(" ");
                         return Arrays.stream(reviewWords);
                     })
                     .distinct()

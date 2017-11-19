@@ -16,7 +16,9 @@ public class MapReduceTfidfVectorizer {
     //gets data from cleaned, combined file for positive and negative reviews
 //    private static String filename = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").lastIndexOf('\\')) + "\\data\\cleanCombined.txt";
 
-    private static String filename = "../data/cleanCombined.txt";
+//    private static String filename = "/Users/changsheng/OneDrive - Singapore Management " +
+//            "University/Work/Current Mods/IS303 AA/week 6/Week6_PP (Callables and Futures)/src/50kfood.txt";
+    private static String filename = "../data/cleanLargeCombined.txt";
     private static int numOfThreads = 8;
     private static Map<String, Integer> vocab = new HashMap<>();
     private static List<List<Integer>> numericalFeatures = new ArrayList<>();
@@ -27,7 +29,8 @@ public class MapReduceTfidfVectorizer {
     public static void main(String[] args) {
 
         // creating a numerical index of all the words in file
-        createVocab(filename);
+
+        createFoodVocab(filename);
 
         // converting all words in review to numbers
         try {
@@ -75,6 +78,31 @@ public class MapReduceTfidfVectorizer {
                         String[] parts = x.split(",");
 //                        System.out.println(Arrays.toString(parts));
                         String[] reviewWords = parts[2].split(" ");
+                        return Arrays.stream(reviewWords);
+                    })
+                    .distinct()
+                    .collect(Collectors.toList());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        int id = 0;
+        for(String word : words){
+            vocab.put(word, id);
+            id++;
+        }
+        System.out.println("Number of unique tokens : " + vocab.keySet().size());
+    }
+
+    public static void createFoodVocab(String filename){
+
+        List<String> words = new ArrayList<>();
+
+        try {
+            words = Files.lines(Paths.get(filename))
+                    .flatMap(x -> {
+                        String[] reviewWords = x.split(" ");
                         return Arrays.stream(reviewWords);
                     })
                     .distinct()
